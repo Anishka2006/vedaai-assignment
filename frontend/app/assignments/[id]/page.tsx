@@ -1,10 +1,55 @@
 import MainLayout from "@/components/layout/MainLayout";
-export default function AssignmentsPage() {
+import QuestionPaper from "@/components/output/QuestionPaper";
+
+const mockPaper = {
+  sections: [
+    {
+      title: "Section A",
+      instruction:
+        "Attempt all questions",
+
+      questions: [
+        {
+          text:
+            "What is Photosynthesis?",
+          difficulty: "Easy",
+          marks: 2,
+        },
+
+        {
+          text:
+            "Define Osmosis.",
+          difficulty: "Medium",
+          marks: 3,
+        },
+      ],
+    },
+
+    {
+      title: "Section B",
+      instruction:
+        "Attempt any two questions",
+
+      questions: [
+        {
+          text:
+            "Explain the Human Digestive System.",
+          difficulty: "Hard",
+          marks: 10,
+        },
+      ],
+    },
+  ],
+};
+
+export default function GeneratedPaperPage() {
   return (
     <MainLayout>
-      <h1 className="text-2xl font-bold">
-        Assignments
-      </h1>
+
+      <QuestionPaper
+        sections={mockPaper.sections}
+      />
+
     </MainLayout>
   );
 }

@@ -20,7 +20,7 @@
     ],
     "baseUrl": ".", // Added baseUrl to specify the base directory
     "paths": {
-      "@/*": ["./src/*"] // Updated to point to the `src` directory
+      "@/*": ["src/*"]
     }
   },
   "include": [

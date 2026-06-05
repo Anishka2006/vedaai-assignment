@@ -1,21 +1,21 @@
-import Sidebar from "../sidebar/Sidebar";
-import Navbar from "../navbar/Navbar";
+import Sidebar from "@/components/sidebar/Sidebar";
+import Navbar from "@/components/navbar/Navbar";
 
-interface MainLayoutProps {
+interface Props {
   children: React.ReactNode;
 }
 
 export default function MainLayout({
   children,
-}: MainLayoutProps) {
+}: Props) {
   return (
-    <div className="flex">
+    <div className="flex bg-gray-50">
       <Sidebar />
 
       <div className="flex-1">
         <Navbar />
 
-        <main className="p-6">
+        <main className="p-8">
           {children}
         </main>
       </div>
