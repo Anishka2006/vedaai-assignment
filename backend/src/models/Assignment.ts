@@ -1,23 +1,19 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const AssignmentSchema =
-  new mongoose.Schema(
-    {
-      dueDate: String,
-
-      instructions: String,
-
-      status: {
-        type: String,
-        default: "pending",
-      },
-
-      result: Object,
+const AssignmentSchema = new mongoose.Schema(
+  {
+    title: String,
+    instructions: String,
+    status: {
+      type: String,
+      default: "pending",
     },
-    {
-      timestamps: true,
-    }
-  );
+    generatedPaper: Object,
+  },
+  {
+    timestamps: true,
+  }
+);
 
 module.exports = mongoose.model(
   "Assignment",

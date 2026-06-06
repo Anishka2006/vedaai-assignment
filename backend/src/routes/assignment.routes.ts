@@ -1,11 +1,21 @@
+const router =
+  require("express").Router();
 
+const {
+  createAssignment,
+  getAssignment,
+} = require(
+  "../controllers/assignment.controller"
+);
 
-const express = require("express");
+router.post(
+  "/",
+  createAssignment
+);
 
-const { createAssignment: createAssignmentHandler } = require("../controllers/assignment.controller");
-
-const router = express.Router();
-
-router.post("/create", createAssignmentHandler);
+router.get(
+  "/:id",
+  getAssignment
+);
 
 module.exports = router;

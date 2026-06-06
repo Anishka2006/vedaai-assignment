@@ -1,29 +1,42 @@
-const AssignmentModel = require("../models/Assignment");
+const Assignment =
+  require("../models/Assignment");
 
-const { generationQueue } = require("../queues/generation.queue");
+const {
+  generationQueue,
+} = require("../queues/generation.queue");
 
-const createAssignment =
-async (
- req: any,
- res: any
-) => {
+exports.createAssignment =
+  async (req: import('express').Request, res: import('express').Response) => {
 
- const assignment =
- await AssignmentModel.create(
-   req.body
- );
+    const assignment =
+      await Assignment.create({
+        title: req.body.title,
 
- await generationQueue.add(
-   "generate",
-   {
-     assignmentId:
-       assignment._id,
-   }
- );
+        instructions:
+          req.body.instructions,
+      });
 
- return res.json(
-   assignment
- );
-};
+    await generationQueue.add(
+      "generate-paper",
+      {
+        assignmentId:
+          assignment._id,
 
-module.exports = { createAssignment };
+        instructions:
+          req.body.instructions,
+      }
+    );
+
+    res.json(assignment);
+  };
+
+exports.getAssignment =
+  async (req: import('express').Request, res: import('express').Response) => {
+
+    const assignment =
+      await Assignment.findById(
+        req.params.id
+      );
+
+    res.json(assignment);
+  };
