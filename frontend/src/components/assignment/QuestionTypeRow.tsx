@@ -23,7 +23,7 @@ interface QuestionTypeRowProps {
   
         <input
           type="number"
-          placeholder="Questions"
+          placeholder="No. of Questions"
           className="border rounded-lg p-3"
         />
   

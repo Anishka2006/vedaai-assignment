@@ -2,12 +2,49 @@
 
 import { useState } from "react";
 import QuestionTypeRow from "./QuestionTypeRow";
+import { createAssignment } from "@/services/api";
 
 export default function AssignmentForm() {
   const [rows, setRows] = useState([1]);
 
+  const [instructions, setInstructions] =
+  useState("");
+
+const [loading, setLoading] =
+  useState(false);
+
   const addQuestionType = () => {
     setRows([...rows, rows.length + 1]);
+  };
+
+  const handleGenerate = async () => {
+    try {
+      setLoading(true);
+  
+      const assignment =
+        await createAssignment(
+          "Science Test",
+          instructions
+        );
+  
+      console.log(
+        "Assignment Created:",
+        assignment
+      );
+  
+      alert(
+        "Assignment Created Successfully!"
+      );
+  
+    } catch (error) {
+      console.error(error);
+  
+      alert(
+        "Failed to create assignment"
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -74,6 +111,12 @@ export default function AssignmentForm() {
 
           <textarea
             rows={5}
+            value={instructions}
+            onChange={(e) =>
+              setInstructions(
+                e.target.value
+              )
+            }
             className="border rounded-lg p-3 w-full"
             placeholder="Additional instructions..."
           />
@@ -82,9 +125,13 @@ export default function AssignmentForm() {
         {/* Generate */}
 
         <button
+          onClick={handleGenerate}
+          disabled={loading}
           className="bg-black text-white px-6 py-3 rounded-lg"
         >
-          Generate Assessment
+          {loading
+            ? "Generating..."
+            : "Generate Assessment"}
         </button>
 
       </div>
