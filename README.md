@@ -203,8 +203,4 @@ Hosted on Render.
 
 ## Author
 
-Anishka Yadav
-
-B.Tech AI & ML Student
-
-Passionate about AI-powered educational technologies and full-stack development.
+Anishka
