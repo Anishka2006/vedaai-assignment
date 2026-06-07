@@ -8,6 +8,10 @@ import {
   Settings,
   Bell,
   Plus,
+  ClipboardList,
+  CheckCircle,
+  Clock,
+  BookOpen,
 } from "lucide-react";
 
 export default function DashboardPage() {
@@ -43,17 +47,24 @@ export default function DashboardPage() {
 
           <div className="space-y-4">
 
-            <div className="flex items-center gap-3">
+            <Link
+              href="/"
+              className="flex items-center gap-3"
+            >
               <Home size={20} />
               Home
-            </div>
+            </Link>
 
-            <div className="flex items-center gap-3">
+            <Link
+              href="/groups"
+              className="flex items-center gap-3"
+            >
               <Users size={20} />
               My Groups
-            </div>
+            </Link>
 
-            <div
+            <Link
+              href="/assignments"
               className="
                 flex
                 items-center
@@ -65,25 +76,34 @@ export default function DashboardPage() {
             >
               <FileText size={20} />
               Assignments
-            </div>
+            </Link>
 
-            <div className="flex items-center gap-3">
+            <Link
+              href="/ai-toolkit"
+              className="flex items-center gap-3"
+            >
               📚 AI Teacher Toolkit
-            </div>
+            </Link>
 
-            <div className="flex items-center gap-3">
+            <Link
+              href="/library"
+              className="flex items-center gap-3"
+            >
               <Library size={20} />
               My Library
-            </div>
+            </Link>
 
           </div>
 
           <div className="mt-auto">
 
-            <div className="flex items-center gap-3 mb-6">
+            <Link
+              href="/settings"
+              className="flex items-center gap-3 mb-6"
+            >
               <Settings size={20} />
               Settings
-            </div>
+            </Link>
 
             <div className="bg-gray-100 rounded-2xl p-4">
 
@@ -101,8 +121,8 @@ export default function DashboardPage() {
 
         </div>
 
-        {/* Main Area */}
-        <div className="flex-1 flex flex-col">
+        {/* Main Content */}
+        <div className="flex-1 flex flex-col gap-4">
 
           {/* Top Bar */}
           <div
@@ -117,8 +137,16 @@ export default function DashboardPage() {
             "
           >
 
-            <div className="font-medium">
-              Assignment
+            <div>
+
+              <h1 className="text-2xl font-bold">
+                Welcome Back, Educator 👋
+              </h1>
+
+              <p className="text-gray-500">
+                Manage assignments and AI-powered assessments
+              </p>
+
             </div>
 
             <div className="flex items-center gap-6">
@@ -143,13 +171,11 @@ export default function DashboardPage() {
                 </div>
 
                 <div>
+
                   <div className="font-medium">
-                    Anishka
+                    Educator
                   </div>
 
-                  <div className="text-xs text-gray-500">
-                    Student
-                  </div>
                 </div>
 
               </div>
@@ -158,43 +184,165 @@ export default function DashboardPage() {
 
           </div>
 
-          {/* Empty State */}
-          <div
-            className="
-              flex-1
-              flex
-              flex-col
-              justify-center
-              items-center
-              text-center
-            "
-          >
+          {/* Stats */}
+          <div className="grid grid-cols-4 gap-4">
 
-            <div className="text-[120px] mb-6">
-              📄
+            <div className="bg-white rounded-2xl p-6">
+
+              <ClipboardList
+                size={28}
+                className="mb-3"
+              />
+
+              <div className="text-3xl font-bold">
+                12
+              </div>
+
+              <div className="text-gray-500">
+                Assignments
+              </div>
+
             </div>
 
-            <h2 className="text-5xl font-bold mb-4">
-              No assignments yet
+            <div className="bg-white rounded-2xl p-6">
+
+              <CheckCircle
+                size={28}
+                className="mb-3"
+              />
+
+              <div className="text-3xl font-bold">
+                9
+              </div>
+
+              <div className="text-gray-500">
+                Completed
+              </div>
+
+            </div>
+
+            <div className="bg-white rounded-2xl p-6">
+
+              <Clock
+                size={28}
+                className="mb-3"
+              />
+
+              <div className="text-3xl font-bold">
+                3
+              </div>
+
+              <div className="text-gray-500">
+                Pending
+              </div>
+
+            </div>
+
+            <div className="bg-white rounded-2xl p-6">
+
+              <BookOpen
+                size={28}
+                className="mb-3"
+              />
+
+              <div className="text-3xl font-bold">
+                4
+              </div>
+
+              <div className="text-gray-500">
+                Groups
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* Recent Assignments */}
+          <div className="bg-white rounded-2xl p-6">
+
+            <div className="flex justify-between mb-6">
+
+              <h2 className="text-xl font-bold">
+                Recent Assignments
+              </h2>
+
+              <Link
+                href="/assignments"
+                className="text-blue-600"
+              >
+                View All
+              </Link>
+
+            </div>
+
+            <div className="space-y-4">
+
+              <div className="border rounded-xl p-4 flex justify-between">
+
+                <div>
+
+                  <h3 className="font-semibold">
+                    Science Test
+                  </h3>
+
+                  <p className="text-gray-500 text-sm">
+                    5 MCQs + 2 Long Questions
+                  </p>
+
+                </div>
+
+                <span className="text-green-600 font-medium">
+                  Completed
+                </span>
+
+              </div>
+
+              <div className="border rounded-xl p-4 flex justify-between">
+
+                <div>
+
+                  <h3 className="font-semibold">
+                    Biology Quiz
+                  </h3>
+
+                  <p className="text-gray-500 text-sm">
+                    AI Generated Assessment
+                  </p>
+
+                </div>
+
+                <span className="text-yellow-600 font-medium">
+                  Pending
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* Notifications */}
+          <div className="bg-white rounded-2xl p-6">
+
+            <h2 className="text-xl font-bold mb-4">
+              Recent Activity
             </h2>
 
-            <p className="text-gray-500 max-w-xl mb-8">
-              Create your first assignment and start
-              generating AI-powered question papers.
-            </p>
+            <div className="space-y-3">
 
-            <Link
-              href="/assignments/create"
-              className="
-                bg-black
-                text-white
-                px-8
-                py-4
-                rounded-full
-              "
-            >
-              Create Your First Assignment
-            </Link>
+              <div>
+                ✅ Science Test generated successfully
+              </div>
+
+              <div>
+                📚 New worksheet added to library
+              </div>
+
+              <div>
+                👥 Class 9A group created
+              </div>
+
+            </div>
 
           </div>
 

@@ -1,21 +1,48 @@
-import Link from "next/link";
-
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="p-8">
 
-      <div className="bg-white p-10 rounded-xl shadow-lg text-center">
+      <h1 className="text-3xl font-bold mb-8">
+        Teacher Dashboard
+      </h1>
 
-        <h1 className="text-4xl font-bold mb-6">
-          VedaAI
-        </h1>
+      <div className="grid grid-cols-4 gap-6">
 
-        <Link
-          href="/dashboard"
-          className="bg-black text-white px-6 py-3 rounded-lg"
-        >
-          Open Dashboard
-        </Link>
+        <div className="bg-white p-6 rounded-xl border">
+          <h2 className="text-gray-500">
+            Assignments
+          </h2>
+          <p className="text-3xl font-bold">
+            12
+          </p>
+        </div>
+
+        <div className="bg-white p-6 rounded-xl border">
+          <h2 className="text-gray-500">
+            Groups
+          </h2>
+          <p className="text-3xl font-bold">
+            4
+          </p>
+        </div>
+
+        <div className="bg-white p-6 rounded-xl border">
+          <h2 className="text-gray-500">
+            Resources
+          </h2>
+          <p className="text-3xl font-bold">
+            28
+          </p>
+        </div>
+
+        <div className="bg-white p-6 rounded-xl border">
+          <h2 className="text-gray-500">
+            Pending
+          </h2>
+          <p className="text-3xl font-bold">
+            3
+          </p>
+        </div>
 
       </div>
 
