@@ -1,4 +1,5 @@
-const API_URL = "http://localhost:5001";
+const API_URL =
+  "https://vedaai-assignment-7gab.onrender.com";
 
 export async function createAssignment(
   title: string,
@@ -9,8 +10,7 @@ export async function createAssignment(
     {
       method: "POST",
       headers: {
-        "Content-Type":
-          "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         title,
