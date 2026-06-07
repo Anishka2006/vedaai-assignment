@@ -1,5 +1,5 @@
 const API_URL =
-  "https://vedaai-assignment-7gab.onrender.com";
+  "https://vedaai-assignment-c1ml.onrender.com";
 
 export async function createAssignment(
   title: string,
